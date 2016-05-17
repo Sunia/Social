@@ -77,18 +77,31 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'http://social-games.herokuapp.com' }
+  
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
+config.action_mailer.default_url_options = { :host => 'http://social-games.herokuapp.com' }  
+config.action_mailer.delivery_method = :smtp  
+config.action_mailer.perform_deliveries = true  
+config.action_mailer.raise_delivery_errors = false  
+config.action_mailer.default :charset => "utf-8"  
+config.action_mailer.smtp_settings = {  
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "social-games.herokuapp.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["rajvivek.v@gmail.com"],
+  password: ENV["%indian%"]
+}
 
-  ActionMailer::Base.smtp_settings = {
-    :address              => 'smtp.sendgrid.net',
-    :port                 => '587',
-    :domain               => 'heroku.com',
-    :user_name            => ENV['USERNAME'],
-    :password             => ENV['PASSWORD'],
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
+
+
+
+
+
+
+
+
+
+
 end
