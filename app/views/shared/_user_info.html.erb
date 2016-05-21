@@ -8,10 +8,12 @@
     <%= pluralize(@user.posts_count, 'post') %>
   </h5>
 
-  <h5>
-    <%= fa_icon 'compass' %>
-    <%= @user.about %>
-  </h5>
+  <% if @user.about.present? %>
+    <h5>
+      <%= fa_icon 'compass' %>
+      <%= @user.about %>
+    </h5>
+  <% end %>
 
   <% if @user.dob.present? %>
     <h5>
