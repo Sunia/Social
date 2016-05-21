@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :video_games
+
   resources :posts
   resources :comments, only: [:create, :destroy]
   devise_for :users

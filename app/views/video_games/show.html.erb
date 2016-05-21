@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div id="user-info" class="well">
+
+  <div class="text-center">
+    <h5><%= link_to @video_game.name, @video_game %></h5>
+  </div>
+
+  <% if @video_game.fav_character.present? %>
+    <h5>
+      <%= fa_icon 'child' %> Favorite character is:
+      <%= @video_game.fav_character %>
+    </h5>
+  <% end %>
+
+  <br>
+  <br>
+
+  <div class="col-lg-3">
+	  <div class="well">
+	    <ul class="nav nav-pills nav-stacked">
+	      <li><%= link_to 'Edit Video Game Info', edit_video_game_path(@video_game) %></li>
+	      <li><%= link_to 'Add new Video Game', new_video_game_path %></li>
+
+  		 <% if is_current_user?(@user) %>
+  	        <li><%= link_to 'View Profile', user_path(@user) %></li>
+  	     <% end %>
+	    </ul>
+	  </div>
+  </div>
+</div>
