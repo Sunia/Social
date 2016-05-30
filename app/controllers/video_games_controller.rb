@@ -1,6 +1,6 @@
 class VideoGamesController < ApplicationController
   before_action :set_video_game, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user
   respond_to :html
 
   def index
@@ -45,6 +45,10 @@ class VideoGamesController < ApplicationController
 
     def video_game_params
       params.require(:video_game).permit(:name, :fav_character)
-
     end
+
+    def set_user
+      @user = current_user
+    end
+
 end

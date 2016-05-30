@@ -6,6 +6,10 @@
     <h5><%= link_to @video_game.name, @video_game %></h5>
   </div>
 
+  <%= form_tag follow_path(user_id: @user.id), method: :post, remote: true do %>
+    <%= button_tag 'follow', class: 'btn btn-success', style: "float: right;" %>
+  <% end %>
+
   <% if @video_game.fav_character.present? %>
     <h5>
       <%= fa_icon 'child' %> Favorite character is:
@@ -28,4 +32,8 @@
 	    </ul>
 	  </div>
   </div>
+
+
+
+
 </div>
