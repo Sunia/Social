@@ -38,6 +38,14 @@ class VideoGamesController < ApplicationController
     respond_with(@video_game)
   end
 
+
+  # Current user will follow the video game of the user
+  def video_game_follow
+    debugger
+    puts 'H'
+  end
+
+
   private
     def set_video_game
       @video_game = VideoGame.find(params[:id])
