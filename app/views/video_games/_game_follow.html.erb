@@ -1,0 +1,11 @@
+<div class="follow">
+  <% if video_game.followed_by?(user) %>
+    <%= form_tag video_game_unfollow_path(user_id: user.id, game_id: video_game.id), method: :post, remote: true do %>
+      <%= button_tag 'unfollow game', class: 'btn btn-primary', style: 'float: right;' %>
+    <% end %>
+  <% else %>
+    <%= form_tag video_game_follow_path(user_id: user.id, game_id: video_game.id), method: :post, remote: true do %>
+      <%= button_tag 'follow game', class: 'btn btn-success', style: 'float: right;' %>
+    <% end %>
+  <% end %>
+</div>

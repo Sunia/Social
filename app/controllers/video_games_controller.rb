@@ -41,10 +41,20 @@ class VideoGamesController < ApplicationController
 
   # Current user will follow the video game of the user
   def video_game_follow
-    debugger
-    puts 'H'
+    @video_game = VideoGame.find(params[:game_id])
+    @user = User.find(params[:user_id])
+
+    # User who visited the game profile followed that game.
+    @user.follow(@video_game)
   end
 
+  def video_game_unfollow
+    @video_game = VideoGame.find(params[:game_id])
+    @user = User.find(params[:user_id])
+
+    # User who visited the game profile unfollowed that game.
+    @user.stop_following(@video_game)    
+  end
 
   private
     def set_video_game

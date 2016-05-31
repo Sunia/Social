@@ -1,0 +1,12 @@
+<% if activity.trackable %>
+  <div class="activity-game-update">
+    <div class="info">
+
+     <% user = User.find(activity.trackable.user_id) %>
+
+      <span class="action">The info of <%= link_to activity.trackable.name, activity.trackable %> game played by  <%= link_to user.name, user  %> is updated</span>
+    </div>
+
+    <%= render 'shared/updated_at', activity: activity %>
+  </div>
+<% end %>

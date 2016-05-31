@@ -6,9 +6,7 @@
     <h5><%= link_to @video_game.name, @video_game %></h5>
   </div>
 
-  <%= form_tag follow_path(user_id: @user.id), method: :post, remote: true do %>
-    <%= button_tag 'follow', class: 'btn btn-success', style: "float: right;" %>
-  <% end %>
+  <%= render 'video_games/game_follow', user: @user, video_game: @video_game %>
 
   <% if @video_game.fav_character.present? %>
     <h5>
