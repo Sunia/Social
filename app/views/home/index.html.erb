@@ -6,11 +6,11 @@
     <%= render 'posts/form' %>
     <br>
     <div id="activities">
-      <% debugger %>
       <% if @activities.empty? %>
         <div class="well">
           <%= render('shared/no_resource', resources: 'Activities') %>
         </div>
+
       <% else %>
         <%= render_activities(@activities, layout: '/shared/activity') %>
       <% end %>

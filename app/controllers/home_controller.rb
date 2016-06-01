@@ -13,18 +13,7 @@ class HomeController < ApplicationController
     @friends.each {|friend| @followed_games_id << friend.id if friend.class.name == "VideoGame"}
     @followed_games_id = @followed_games_id.uniq
 
-    # @activities = PublicActivity::Activity.where(owner_id: @friends).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-
-    debugger
-    @activities = PublicActivity::Activity.all.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-
-
-    @owner_activities = PublicActivity::Activity.where(owner_id: @friends).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-    @video_game_activities =  PublicActivity::Activity.where(trackable_type: "VideoGame", trackable_id: @followed_games_id.uniq).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-
-    # debugger
-    # @activities = @owner_activities.push(@video_game_activities)
-
+    @activities = PublicActivity::Activity.where("owner_id in (?) or (trackable_type = (?) AND trackable_id in (?))", @friends, "VideoGame", @followed_games_id.uniq).uniq.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def front

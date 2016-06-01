@@ -1,4 +1,7 @@
-<%= link_to user_path(user) do %>
+<% unless user.class.name == "VideoGame" %>
 
-  <!-- %= image_tag user.avatar.url || 'avatar.jpg', class: 'avatar' %> -->
+	<%= link_to user_path(user) do %>
+	  <%= image_tag user.avatar.url || 'avatar.jpg', class: 'avatar' %>
+	<% end %>
+
 <% end %>
