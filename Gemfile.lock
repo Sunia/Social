@@ -50,6 +50,7 @@ GEM
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
+    byebug (9.0.5)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   bootstrap-sass (~> 3.2.0)
+  byebug
   carrierwave
   cloudinary
   counter_culture (~> 0.1.33)
@@ -257,4 +259,4 @@ DEPENDENCIES
   will_paginate (~> 3.0.6)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
